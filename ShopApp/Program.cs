@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ShopApp
 {
@@ -12,6 +13,7 @@ namespace ShopApp
             Customer customer = new Customer("Surname1", "Firstname1");
             shop.Show();
             String[] ords = { "Product1", "Product2", "Product1", "Product1" };
+            customer.Order(shop, ords);
             customer.Order(shop, ords);
             customer.Show();
             Console.ReadLine();

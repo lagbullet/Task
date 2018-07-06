@@ -13,4 +13,7 @@ public class Product
         ProductName = sname;
         Cost = scost;
 	}
+
+    public void Show() => Console.WriteLine("Product: " + ProductName + "; Cost: " + Cost);
+
 }

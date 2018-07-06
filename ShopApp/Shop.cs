@@ -1,34 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Shop
 {
     public String shopName;
-    public Product[] products = new Product[20];
-    int pcount = 0;
+    public List<Product> products = new List<Product>();
 
-    public Shop(String sname)
-    {
-        ShopName = sname;
-    }
-
-    public String ShopName { get; set; }
+    public Shop(String sname) => shopName = sname;
 
     public void SetProduct(String pname, int pcost)
     {
-        if (pcount < products.Length)
-            products[pcount++] = new Product(pname, pcost);
-        else
-        {
-            Array.Resize(ref products, pcount + 20);
-            products[pcount++] = new Product(pname, pcost);
-        }
+        products.Add(new Product(pname, pcost));
     }
 
     public void Show()
     {
-        Console.Write("Shop name -> " + ShopName);
+        Console.Write("Shop name -> " + shopName);
         Console.WriteLine("\n  Products  ");
-        for (int i = 0; i < pcount; i++)
-            Console.WriteLine("Product: " + products[i].ProductName + "; Cost: " + products[i].Cost);
+        foreach (Product pr in products)
+            pr.Show();
     }
 }

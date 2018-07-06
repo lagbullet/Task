@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Customer
 {
     public String surName;
     public String firstName;
-    public Order[] orders;
-    public int ocount = 0;
+    public List<Order> orders = new List<Order>();
 
 
     public String SurName { get; set; }
@@ -15,7 +15,6 @@ public class Customer
 	{
         SurName = sname;
         FirstName = fname;
-        orders = new Order[5];
     }
 
     public void Order(Shop shop, String[] pname)
@@ -33,24 +32,20 @@ public class Customer
             Console.WriteLine("There is no such product");
             return;
         }
-        if (ocount < orders.Length)
-            orders[ocount++] = new Order(this, shop.ShopName, pname, pname.Length, DateTime.Now);
-        else
-        {
-            Array.Resize(ref orders, ocount + 5);
-            orders[ocount++] = new Order(this, shop.ShopName, pname,pname.Length, DateTime.Now);
-        }
+        orders.Add(new Order(this, shop.shopName, pname, DateTime.Now));
     }
 
     public void Show()
     {
-        Console.WriteLine("" + SurName + " " + FirstName+ "\n  Orders  ");
-        for (int i = 0; i < ocount; i++)
+        Console.WriteLine("" + SurName + " " + FirstName + "\n  Orders  ");
+        foreach (Order ord in orders)
         {
+            Console.WriteLine("Shop: "+ ord.Seller);
             Console.Write("Products:");
-            foreach (String pr in orders[i].Prods)
+            foreach (String pr in ord.prods)
                 Console.Write(" " + pr);
-            Console.Write("\nOrder Time: " + orders[i].OrderTime);
+            Console.WriteLine("\nOrder Time: " + ord.OrderTime);
+            Console.WriteLine();
         }
     }
 }

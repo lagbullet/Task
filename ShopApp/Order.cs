@@ -4,19 +4,21 @@ public class Order
 {
     public Customer buyer;
     public String seller;
-    public String product;
+    public String[] prods;
     public DateTime orderTime;
 
     public Customer Buyer { get; set; }
     public String Seller { get; set; }
-    public String Product { get; set; }
+    public String[] Prods { get; set; }
     public DateTime OrderTime { get; set; }
 
-    public Order(Customer br, String shp, string product, DateTime order)
+    public Order(Customer br, String shp, string[] prds,int pcount, DateTime order)
     {
         Buyer = br;
         Seller = shp;
-        Product = product;
+        Prods = new String[pcount];
+        for (int i=0; i<pcount; i++)
+            Prods[i] = prds[i];
         OrderTime = order;
     }
 }

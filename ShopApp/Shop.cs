@@ -2,16 +2,17 @@
 
 public class Shop
 {
-    public String name;
+    public String shopName;
     public Product[] products = new Product[20];
     int pcount = 0;
 
     public Shop(String sname)
     {
-        Name = sname;
+        ShopName = sname;
     }
 
-    public String Name { get; set; }
+    public String ShopName { get; set; }
+
     public void SetProduct(String pname, int pcost)
     {
         if (pcount < products.Length)
@@ -25,9 +26,9 @@ public class Shop
 
     public void Show()
     {
-        Console.Write("Shop name -> " + Name);
+        Console.Write("Shop name -> " + ShopName);
         Console.WriteLine("\n  Products  ");
         for (int i = 0; i < pcount; i++)
-            Console.WriteLine("Product: " + products[i].Name+ "; Cost: " + products[i].Cost);
+            Console.WriteLine("Product: " + products[i].ProductName + "; Cost: " + products[i].Cost);
     }
 }

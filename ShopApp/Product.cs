@@ -2,15 +2,15 @@
 
 public class Product
 {
-    public String name;
+    public String productName;
     public int cost;
 
-    public String Name { get; set; }
+    public String ProductName { get; set; }
     public int Cost { get; set; }
 
     public Product(String sname, int scost)
 	{
-        Name = sname;
+        ProductName = sname;
         Cost = scost;
 	}
 }

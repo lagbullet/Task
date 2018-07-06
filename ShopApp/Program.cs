@@ -7,10 +7,12 @@ namespace ShopApp
         static void Main(string[] args)
         {
             Shop shop = new Shop("SHOP");
-            shop.SetProduct("pr1", 100);
+            shop.SetProduct("Product1", 100);
+            shop.SetProduct("Product2", 50);
             Customer customer = new Customer("Surname1", "Firstname1");
             shop.Show();
-            customer.Order(shop, "pr1");
+            String[] ords = { "Product1", "Product2", "Product1", "Product1" };
+            customer.Order(shop, ords);
             customer.Show();
             Console.ReadLine();
         }

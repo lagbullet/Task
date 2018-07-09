@@ -17,14 +17,14 @@ public class Customer
         FirstName = fname;
     }
 
-    public void Order(Shop shop, String[] pname)
+    public void Order(Shop shop, Product[] pname)
     {
         int k=0;
         foreach(Product pr in shop.products)
         {
             if (pr == null) break;
-            foreach (String prod in pname)
-                if (pr.ProductName.Equals(prod))
+            foreach (Product prod in pname)
+                if (pr.ProductName.Equals(prod.ProductName))
                     k++;
         }
         if (k != pname.Length)
@@ -40,10 +40,10 @@ public class Customer
         Console.WriteLine("" + SurName + " " + FirstName + "\n  Orders  ");
         foreach (Order ord in orders)
         {
-            Console.WriteLine("Shop: "+ ord.Seller);
+            //Console.WriteLine("Shop: "+ ord.Seller);
             Console.Write("Products:");
-            foreach (String pr in ord.prods)
-                Console.Write(" " + pr);
+            foreach (Product pr in ord.prods)
+                Console.Write(" " + pr.ProductName);
             Console.WriteLine("\nOrder Time: " + ord.OrderTime);
             Console.WriteLine();
         }

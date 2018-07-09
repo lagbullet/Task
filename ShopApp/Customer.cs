@@ -40,7 +40,7 @@ public class Customer
         Console.WriteLine("" + SurName + " " + FirstName + "\n  Orders  ");
         foreach (Order ord in orders)
         {
-            //Console.WriteLine("Shop: "+ ord.Seller);
+            Console.WriteLine("Shop: "+ ord.Seller);
             Console.Write("Products:");
             foreach (Product pr in ord.prods)
                 Console.Write(" " + pr.ProductName);
